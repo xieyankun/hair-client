@@ -1,28 +1,28 @@
 <template>
-  <div class="activity">
+  <div class="barber">
     <h-title></h-title>
     <ul class="barber-wrap">
       <li class="barber-item">
-        <a href="item.url" class="barber-list">
+        <router-link :to="{name: 'BarberInfo', params: {bid: 1}}" class="barber-list">
           <div class="img-wrap">
             <img src="../../assets/1.jpg" alt="">
           </div>
           <div class="info">
-            <p>item.title</p>
-            <p>item.created_at</p>
+            <p><span class="username">item.username</span>（item.leve）</p>
+            <p class="tag"><span>tag</span><span>tag</span><span>tag</span></p>
           </div>
-        </a>
+        </router-link>
       </li>
       <li class="barber-item">
-        <a href="item.url" class="barber-list">
+        <router-link :to="{name: 'BarberInfo', params: {bid: 1}}" class="barber-list">
           <div class="img-wrap">
             <img src="../../assets/1.jpg" alt="">
           </div>
           <div class="info">
-            <p>item.title</p>
-            <p>item.created_at</p>
+            <p><span class="username">item.username</span>（item.leve）</p>
+            <p class="tag"><span>tag</span><span>tag</span><span>tag</span></p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -36,6 +36,8 @@ export default {
   },
   data () {
     return {
+      url: `http://192.168.1.106:8888/api/front/shop/${this.$route.params.sid}/barbers/`,
+      barberlist: []
     }
   },
   mounted () {
@@ -49,7 +51,7 @@ export default {
   .barber-wrap{
     text-align: left;
     .barber-item{
-      margin-top: 0.16rem
+      margin-bottom: 4px;
     }
     .barber-list{
       display: flex;
@@ -59,10 +61,12 @@ export default {
     .img-wrap{
       width: 2rem;
       height: 2rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       img{
-        width: 100%;
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 50%;
       }
     }
     .info{
@@ -72,6 +76,19 @@ export default {
       justify-content: space-around;
       flex-direction: column;
       align-items: flex-start;
+      .username{
+        font-size: 0.48rem;
+      }
+      .tag{
+        span{
+          border: 2px solid #00bfbf;
+          padding: 0 14px;
+          border-radius: 8px;
+          margin-right: 8px;
+          color: #00bfbf;
+          font-size: 0.34rem;
+        }
+      }
     }
   }
 </style>

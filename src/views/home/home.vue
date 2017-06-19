@@ -17,7 +17,7 @@
       <div class="base-info">
         <ul>
           <li>
-            <router-link :to="{name: 'welcome'}" class="piece">
+            <router-link :to="{name: 'Activity'}" class="piece">
               <div class="info-wrap">
                 <i v-bind:class="" class="icon hairfont"></i>
                 <p class="title">近期活动</p>
@@ -25,7 +25,7 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{name: 'welcome'}" class="piece">
+            <router-link :to="{name: 'BarberList'}" class="piece">
               <div class="info-wrap">
                 <i v-bind:class="" class="icon hairfont"></i>
                 <p class="title">理发师</p>
@@ -33,7 +33,7 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{name: 'welcome'}" class="piece">
+            <router-link :to="{name: 'DesignList'}" class="piece">
               <div class="info-wrap">
                 <i v-bind:class="" class="icon hairfont"></i>
                 <p class="title">发型设计</p>
@@ -41,7 +41,7 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{name: 'welcome'}" class="piece">
+            <router-link :to="{name: 'Personal'}" class="piece">
               <div class="info-wrap">
                 <i v-bind:class="" class="icon hairfont"></i>
                 <p class="title">个人中心</p>
