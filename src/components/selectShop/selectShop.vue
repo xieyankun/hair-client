@@ -5,14 +5,16 @@
         <h3 class="title">切换场馆</h3>
         <ul class="list">
             <li class="f-cf">
-              <img src="" alt="" class="logo f-fl"/>
-              <div class="ctnWrap">
-                  <h4 class="f-thide">798</h4>
-                  <p>北京时代科技啊疯了看电视发射到家了</p>
-              </div>
-              <div class="icon">
-                <i class="icon hairfont hair-youjiantou"></i>
-              </div>
+              <router-link :to="{name: 'welcome'}" class="inner">
+                <img src="" alt="" class="logo f-fl"/>
+                <div class="ctnWrap">
+                    <h4 class="f-thide">798</h4>
+                    <p>北京时代科技啊疯了看电视发射到家了</p>
+                </div>
+                <div class="icon">
+                  <i class="icon hairfont hair-youjiantou"></i>
+                </div>
+              </router-link>
             </li>
         </ul>
       </div>
