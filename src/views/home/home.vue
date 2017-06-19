@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <h-title></h-title>
       <div class="home-swipe">
         <mt-swipe :auto="3000">
           <mt-swipe-item>
@@ -14,13 +15,86 @@
         </mt-swipe>
       </div>
       <div class="base-info">
+        <ul>
+          <li>
+            <router-link :to="{name: 'welcome'}" class="piece">
+              <div class="info-wrap">
+                <i v-bind:class="" class="icon hairfont"></i>
+                <p class="title">近期活动</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome'}" class="piece">
+              <div class="info-wrap">
+                <i v-bind:class="" class="icon hairfont"></i>
+                <p class="title">理发师</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome'}" class="piece">
+              <div class="info-wrap">
+                <i v-bind:class="" class="icon hairfont"></i>
+                <p class="title">发型设计</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome'}" class="piece">
+              <div class="info-wrap">
+                <i v-bind:class="" class="icon hairfont"></i>
+                <p class="title">个人中心</p>
+              </div>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="service">
+        <h1>门店服务</h1>
+        <ul class="service-list">
+          <li>
+            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
+              <div class="info-wrap">
+                <i class="icon hairfont hair-zhuye"></i>
+                <p class="title">理发</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
+              <div class="info-wrap">
+                <i class="icon hairfont hair-zhuye"></i>
+                <p class="title">理发</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
+              <div class="info-wrap">
+                <i class="icon hairfont hair-zhuye"></i>
+                <p class="title">理发</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
+              <div class="info-wrap">
+                <i class="icon hairfont hair-zhuye"></i>
+                <p class="title">理发</p>
+              </div>
+            </router-link>
+          </li>
+        </ul>
       </div>
     </div>
 </template>
 
 <script>
+import titleBar from '@/components/titleBar/titleBar'
 export default {
   components: {
+    'h-title': titleBar
   },
   data () {
   },
@@ -33,7 +107,7 @@ export default {
 
 <style lang="scss" scoped>
   .home-swipe{
-    height: 6rem;
+    height: 5rem;
 
     img{
       width: 100%;

@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import welcome from '../views/welcome/welcome'
+import welcome from '@/views/welcome/welcome'
+
+import Home from './shops.router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = {
   routes: [
     {
       path: '/',
@@ -18,4 +20,10 @@ export default new Router({
       component: welcome
     }
   ]
-})
+}
+
+router.routes = router.routes.concat(Home)
+
+const RouterInstance = new Router(router)
+
+export default RouterInstance
