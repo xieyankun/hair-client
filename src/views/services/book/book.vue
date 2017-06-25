@@ -62,22 +62,14 @@
     <div class="appoin">
       <button class="btn default" @click="submit()">确认预约</button>
     </div>
-    <alert v-show="show"></alert>
   </div>
 </template>
 
 <script>
 import titleBar from '@/components/titleBar/titleBar'
-import barberSwipe from '@/components/barberSwipe/barberSwipe'
-import slideGallery from '@/components/slide_gallery'
-import alert from '@/components/alert'
-// import _ from 'lodash'
 export default {
   components: {
-    'h-title': titleBar,
-    'barber-swipe': barberSwipe,
-    'slide-gallery': slideGallery,
-    'alert': alert
+    'h-title': titleBar
   },
   data () {
     return {
@@ -114,43 +106,43 @@ export default {
       time.show = !time.show
     },
     getBarberList: function () {
-      var _this = this
-      console.log(_this.url)
-      var params = _this.$route.params
-      API.getBarberList(params).then((res) => {
-        console.log(res)
-        _this.barberlist = res.data.barbers
-        _this.currentIndex = 0
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      // var _this = this
+      // console.log(_this.url)
+      // var params = _this.$route.params
+      // API.getBarberList(params).then((res) => {
+      //   console.log(res)
+      //   _this.barberlist = res.data.barbers
+      //   _this.currentIndex = 0
+      // })
+      // .catch((error) => {
+      //   console.log(error)
+      // })
     },
     selectBarber: function ($index) {
       console.log($index)
       this.currentIndex = $index
     },
     submit: function () {
-      var _this = this
-      var orderData = {
-        shop_id: this.$route.params.sid,
-        barber_id: this.currentIndex,
-        order_date: this.selected,
-        order_time: this.time,
-        service_id: this.$route.params.seid
-      }
-      console.log(orderData)
-      API.postOrderService(_this.params).then((res) => {
-        console.log(res)
-        _this.show = true
-        setTimeout(function () {
-          _this.show = false
-          _this.$router.go(-2)
-        }, 2000)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      // var _this = this
+      // var orderData = {
+      //   shop_id: this.$route.params.sid,
+      //   barber_id: this.currentIndex,
+      //   order_date: this.selected,
+      //   order_time: this.time,
+      //   service_id: this.$route.params.seid
+      // }
+      // console.log(orderData)
+      // API.postOrderService(_this.params).then((res) => {
+      //   console.log(res)
+      //   _this.show = true
+      //   setTimeout(function () {
+      //     _this.show = false
+      //     _this.$router.go(-2)
+      //   }, 2000)
+      // })
+      // .catch((error) => {
+      //   console.log(error)
+      // })
     }
   },
   created () {

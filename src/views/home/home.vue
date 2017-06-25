@@ -42,7 +42,7 @@
         <h1>门店服务</h1>
         <ul class="service-list">
           <li v-for="item in serviceList">
-            <router-link :to="{name: 'welcome', params: {seid: item.id}}" class="piece">
+            <router-link :to="{name: 'ServiceInfo', params: {svid: item.id}}" class="piece">
               <div class="info-wrap">
                 <i class="icon hairfont hair-zhuye"></i>
                 <p class="title">{{item.name}}</p>

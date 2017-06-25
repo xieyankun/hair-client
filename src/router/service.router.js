@@ -2,17 +2,17 @@
  * Created by Kira on 3/20/17.
  */
 import ServiceInfo from '@/views/services/index/index'
-import Haircut from '@/views/services/haircut/Haircut'
+import Book from '@/views/services/book/book'
 
 export default [
   {
-    path: '/shop/:sid/serviceInfo/:seid',
+    path: '/shop/:sid/:svid',
     name: 'ServiceInfo',
     component: ServiceInfo
   },
   {
-    path: '/shop/:sid/serviceInfo/:seid/haircut',
-    name: 'Haircut',
-    component: Haircut
+    path: '/shop/:sid/:svid/book',
+    name: 'Book',
+    component: Book
   }
 ]

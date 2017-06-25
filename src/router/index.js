@@ -8,7 +8,7 @@ import Activity from './activity.router'
 import Barber from './barber.router'
 import Design from './design.router'
 import Personal from './personal.router'
-// import Services from './service.router'
+import Services from './service.router'
 
 Vue.use(Router)
 
@@ -27,7 +27,7 @@ const router = {
   ]
 }
 
-router.routes = router.routes.concat(Home, Activity, Barber, Design, Personal)
+router.routes = router.routes.concat(Home, Activity, Barber, Design, Personal, Services)
 
 const RouterInstance = new Router(router)
 

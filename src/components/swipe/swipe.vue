@@ -21,7 +21,6 @@
       }
     },
     mounted () {
-      console.log(this.swipeList)
     },
     methods: {
     }
