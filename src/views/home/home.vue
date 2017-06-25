@@ -1,19 +1,7 @@
 <template>
     <div class="container">
       <h-title></h-title>
-      <div class="home-swipe">
-        <mt-swipe :auto="3000">
-          <mt-swipe-item>
-            <img src="../../assets/1.jpg" alt="">
-          </mt-swipe-item>
-          <mt-swipe-item>
-            <img src="../../assets/2.jpg" alt="">
-          </mt-swipe-item>
-          <mt-swipe-item>
-            <img src="../../assets/3.jpg" alt="">
-          </mt-swipe-item>
-        </mt-swipe>
-      </div>
+      <h-swipe :swipeList="swipeListInfo"></h-swipe>
       <div class="base-info">
         <ul>
           <li>
@@ -53,35 +41,11 @@
       <div class="service">
         <h1>门店服务</h1>
         <ul class="service-list">
-          <li>
-            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
+          <li v-for="item in serviceList">
+            <router-link :to="{name: 'welcome', params: {seid: item.id}}" class="piece">
               <div class="info-wrap">
                 <i class="icon hairfont hair-zhuye"></i>
-                <p class="title">理发</p>
-              </div>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
-              <div class="info-wrap">
-                <i class="icon hairfont hair-zhuye"></i>
-                <p class="title">理发</p>
-              </div>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
-              <div class="info-wrap">
-                <i class="icon hairfont hair-zhuye"></i>
-                <p class="title">理发</p>
-              </div>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{name: 'welcome', params: {seid: 1}}" class="piece">
-              <div class="info-wrap">
-                <i class="icon hairfont hair-zhuye"></i>
-                <p class="title">理发</p>
+                <p class="title">{{item.name}}</p>
               </div>
             </router-link>
           </li>
@@ -92,21 +56,45 @@
 
 <script>
 import titleBar from '@/components/titleBar/titleBar'
+import swipe from '@/components/swipe/swipe'
+import API from '@/services/home_data'
+import axios from 'axios'
 export default {
   components: {
-    'h-title': titleBar
+    'h-title': titleBar,
+    'h-swipe': swipe
   },
   data () {
+    return {
+      serviceList: [],
+      swipeListInfo: []
+    }
   },
   mounted () {
+    let getRequest = [this.getSwipeList(), this.getServiceList()]
+    axios.all(getRequest)
   },
   methods: {
+    getSwipeList () {
+      let _this = this
+      let shopId = _this.$route.params.sid
+      API.getSwipeList(shopId).then((res) => {
+        _this.swipeListInfo = res.results
+      })
+    },
+    getServiceList () {
+      let _this = this
+      let shopId = this.$route.params.sid
+      API.getShopService(shopId).then((res) => {
+        _this.serviceList = res.results
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .home-swipe{
+  .swipe{
     height: 5rem;
 
     img{

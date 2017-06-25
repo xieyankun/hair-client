@@ -1,0 +1,1 @@
+export const GET_CANTEENINFO = 'GET_CANTEENINFO';
