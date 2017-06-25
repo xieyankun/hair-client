@@ -2,7 +2,7 @@
   <div class="swipe">
     <mt-swipe :auto="3000">
       <mt-swipe-item v-for="item in swipeList">
-        <img :src="item.img" alt="">
+        <img :src="item.url" alt="">
       </mt-swipe-item>
     </mt-swipe>
   </div>

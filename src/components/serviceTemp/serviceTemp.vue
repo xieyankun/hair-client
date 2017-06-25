@@ -1,24 +1,23 @@
 <template>
   <div class="service-temp">
-    <div class="img-wrap">
-        <img src="../../assets/service.jpg" alt="">
-    </div>
-    <h-swipe :swipeList="swipeListInfo"></h-swipe>
+    <h-swipe :swipeList="serviceData.service_imgs"></h-swipe>
     <div class="introduce-wrap">
         <h1>服务介绍</h1>
-        <p>{{serviceData.name}}</p>
+        <p>{{serviceData.desc}}</p>
     </div>
 
     <div class="fee-wrap">
       <h1>理发费用</h1>
       <div class="fee-item">
-        <p><span>理发</span><span>90</span></p>
-        <p><span>理发</span><span>90</span></p>
+        <p v-for="item in serviceData.service_items">
+          <span>{{item.name}}</span>
+          <span>{{item.desc}}</span>
+        </p>
       </div>
     </div>
 
     <div class="btn-wrap">
-        <router-link :to="{name: 'welcome'}" class="goOrder">
+        <router-link :to="{name: 'Book'}" class="goOrder">
           预约理发
         </router-link>
        
@@ -28,7 +27,6 @@
 </template>
 <script>
 import swipe from '@/components/swipe/swipe'
-
 export default {
   components: {
     'h-swipe': swipe
@@ -41,8 +39,7 @@ export default {
   },
   data () {
     return {
-      service: {},
-      swipeListInfo: this.serviceData.service_imgs
+      service: {}
     }
   },
   mounted () {

@@ -1,13 +1,11 @@
 <template>
   <div class="haircut">
-    <h-title></h-title>
-
     <mt-navbar v-model="selected">
       <mt-tab-item id="1">今天</mt-tab-item>
       <mt-tab-item id="2">明天</mt-tab-item>
       <mt-tab-item id="3">后天</mt-tab-item>
     </mt-navbar>
-
+    <h-title></h-title>
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
@@ -44,7 +42,7 @@
         理发师
       </div>
       <ul class="barber-list">
-        <li v-for="item in barberlist" 
+        <!-- <li v-for="item in barberlist" 
             :class="{'z-active': currentIndex == item.id}" 
             @click.prevent="selectBarber(item.id)">
           <div class="img-wrap">
@@ -53,6 +51,26 @@
           <div class="name">
             <router-link :to="{name: 'BarberInfo', params: {bid: item.id}}">
               {{item.username}}
+            </router-link>
+          </div>
+        </li> -->
+        <li>
+          <div class="img-wrap">
+            <img src="../../../assets/hair.jpg" alt="">
+          </div>
+          <div class="name">
+            <router-link :to="{name: 'welcome'}">
+              item.username
+            </router-link>
+          </div>
+        </li>
+        <li>
+          <div class="img-wrap">
+            <img src="../../../assets/hair.jpg" alt="">
+          </div>
+          <div class="name">
+            <router-link :to="{name: 'welcome'}">
+              item.username
             </router-link>
           </div>
         </li>
@@ -75,7 +93,6 @@ export default {
     return {
       selected: '1',
       showSlide: !0,
-      url: `http://192.168.1.106:8888/api/front/shop/${this.$route.params.sid}/barbers/`,
       barberlist: [],
       currentIndex: null,
       show: false,
