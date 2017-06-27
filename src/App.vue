@@ -5,8 +5,12 @@
 </template>
 
 <script>
+import titleBar from '@/components/titleBar/titleBar'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'h-title': titleBar
+  }
 }
 </script>
 

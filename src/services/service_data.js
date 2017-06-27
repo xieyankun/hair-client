@@ -6,5 +6,10 @@ export default {
     const $cfg = {}
     $cfg.url = 'api/services/' + id
     return ajaxUtil.doGetRequest($cfg)
+  },
+  getServiceMan (id) {
+    const $cfg = {}
+    $cfg.url = 'api/staff/?service_id=' + id
+    return ajaxUtil.doGetRequest($cfg)
   }
 }

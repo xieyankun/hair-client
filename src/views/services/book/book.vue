@@ -42,7 +42,7 @@
         理发师
       </div>
       <ul class="barber-list">
-        <!-- <li v-for="item in barberlist" 
+        <li v-for="(item, index) in barberlist" 
             :class="{'z-active': currentIndex == item.id}" 
             @click.prevent="selectBarber(item.id)">
           <div class="img-wrap">
@@ -50,27 +50,8 @@
           </div>
           <div class="name">
             <router-link :to="{name: 'BarberInfo', params: {bid: item.id}}">
-              {{item.username}}
-            </router-link>
-          </div>
-        </li> -->
-        <li>
-          <div class="img-wrap">
-            <img src="../../../assets/hair.jpg" alt="">
-          </div>
-          <div class="name">
-            <router-link :to="{name: 'welcome'}">
-              item.username
-            </router-link>
-          </div>
-        </li>
-        <li>
-          <div class="img-wrap">
-            <img src="../../../assets/hair.jpg" alt="">
-          </div>
-          <div class="name">
-            <router-link :to="{name: 'welcome'}">
-              item.username
+              {{item.name}}
+              {{index}}
             </router-link>
           </div>
         </li>
@@ -85,6 +66,7 @@
 
 <script>
 import titleBar from '@/components/titleBar/titleBar'
+import API from '@/services/service_data'
 export default {
   components: {
     'h-title': titleBar
@@ -113,6 +95,9 @@ export default {
       ]
     }
   },
+  mounted () {
+    this.getServiceMan()
+  },
   methods: {
     selectSort: function (time) {
       this.time = time.time
@@ -122,18 +107,16 @@ export default {
       })
       time.show = !time.show
     },
-    getBarberList: function () {
-      // var _this = this
-      // console.log(_this.url)
-      // var params = _this.$route.params
-      // API.getBarberList(params).then((res) => {
-      //   console.log(res)
-      //   _this.barberlist = res.data.barbers
-      //   _this.currentIndex = 0
-      // })
-      // .catch((error) => {
-      //   console.log(error)
-      // })
+    getServiceMan: function () {
+      var _this = this
+      var serviceId = _this.$route.params.svid
+      API.getServiceMan(serviceId).then((res) => {
+        console.log(res)
+        _this.barberlist = res.results
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     },
     selectBarber: function ($index) {
       console.log($index)
@@ -161,9 +144,6 @@ export default {
       //   console.log(error)
       // })
     }
-  },
-  created () {
-    this.getBarberList()
   }
 }
 </script>

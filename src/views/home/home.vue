@@ -113,6 +113,7 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
+    text-align: center;
     transform: translate(-50%, -50%);
     i{
       font-size: 0.853333rem;
@@ -129,6 +130,7 @@ export default {
         background-color: #00bfbf;
         margin-left: 12px;
         border-radius: 8px;
+        text-align: center;
         i{
           color: #FFF;
         }

@@ -26,7 +26,7 @@ export default {
       let _this = this
       let serviceId = this.$route.params.svid
       API.getServiceInfo(serviceId).then((res) => {
-        console.log(res.service_imgs)
+        console.log(res)
         _this.serviceInfo = res
       })
     }

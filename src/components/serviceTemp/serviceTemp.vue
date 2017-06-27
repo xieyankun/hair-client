@@ -94,7 +94,7 @@ export default {
 
   .btn-wrap{
     margin: 1.12rem 0.96rem;
-
+    text-align: center;
     .goOrder{
       font-size: 0.48rem;
       padding: 0.213333rem 0.48rem;
