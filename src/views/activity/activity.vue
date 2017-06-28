@@ -2,25 +2,14 @@
   <div class="activity">
     <h-title></h-title>
     <ul class="barber-wrap">
-      <li class="barber-item">
-        <a href="item.url" class="barber-list">
+      <li class="barber-item" v-for="item in activityList">
+        <a :href="item.href" class="barber-list">
           <div class="img-wrap">
-            <img src="../../assets/1.jpg" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div class="info">
-            <p>item.title</p>
-            <p>item.created_at</p>
-          </div>
-        </a>
-      </li>
-      <li class="barber-item">
-        <a href="item.url" class="barber-list">
-          <div class="img-wrap">
-            <img src="../../assets/1.jpg" alt="">
-          </div>
-          <div class="info">
-            <p>item.title</p>
-            <p>item.created_at</p>
+            <p>{{item.title}}</p>
+            <p>{{item.created_at}}</p>
           </div>
         </a>
       </li>
@@ -30,17 +19,27 @@
 
 <script>
 import titleBar from '@/components/titleBar/titleBar'
+import API from '@/services/activity_data'
 export default {
   components: {
     'h-title': titleBar
   },
   data () {
     return {
+      activityList: []
     }
   },
   mounted () {
+    this.getActivityInfo()
   },
   methods: {
+    getActivityInfo () {
+      let _this = this
+      API.getActivityInfo().then((response) => {
+        console.log(response)
+        _this.activityList = response.results
+      })
+    }
   }
 }
 </script>
