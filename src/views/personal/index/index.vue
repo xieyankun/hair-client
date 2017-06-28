@@ -14,7 +14,7 @@
     </div>
     <div class="matter">
       <div class="p-item">
-        <router-link :to="{name: 'Order'}" class="piece">
+        <router-link :to="{name: 'BarberList'}" class="piece">
           <img src="../../assets/order.png" alt="">
           <p>我的预约</p>
         </router-link>

@@ -2,25 +2,16 @@
   <div class="barber">
     <h-title></h-title>
     <ul class="barber-wrap">
-      <li class="barber-item">
-        <router-link :to="{name: 'BarberInfo', params: {bid: 1}}" class="barber-list">
+      <li class="barber-item" v-for="item in barberlist">
+        <router-link :to="{name: 'BarberInfo', params: {bid: item.id}}" class="barber-list">
           <div class="img-wrap">
-            <img src="../../assets/1.jpg" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div class="info">
-            <p><span class="username">item.username</span>（item.leve）</p>
-            <p class="tag"><span>tag</span><span>tag</span><span>tag</span></p>
-          </div>
-        </router-link>
-      </li>
-      <li class="barber-item">
-        <router-link :to="{name: 'BarberInfo', params: {bid: 1}}" class="barber-list">
-          <div class="img-wrap">
-            <img src="../../assets/1.jpg" alt="">
-          </div>
-          <div class="info">
-            <p><span class="username">item.username</span>（item.leve）</p>
-            <p class="tag"><span>tag</span><span>tag</span><span>tag</span></p>
+            <p><span class="username">{{item.name}}</span>（{{item.position}}）</p>
+            <p class="tag">
+              <span v-for="tag in item.staff_tags">{{tag.tag}}</span>
+            </p>
           </div>
         </router-link>
       </li>
@@ -30,19 +21,28 @@
 
 <script>
 import titleBar from '@/components/titleBar/titleBar'
+import API from '@/services/barber_data'
 export default {
   components: {
     'h-title': titleBar
   },
   data () {
     return {
-      url: `http://192.168.1.106:8888/api/front/shop/${this.$route.params.sid}/barbers/`,
       barberlist: []
     }
   },
   mounted () {
+    this.getBarberList()
   },
   methods: {
+    getBarberList () {
+      let _this = this
+      let shopId = _this.$route.params.sid
+      API.getBarberList(shopId).then((response) => {
+        console.log(response)
+        _this.barberlist = response.results
+      })
+    }
   }
 }
 </script>
