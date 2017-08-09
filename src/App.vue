@@ -24,6 +24,9 @@ body{
     background-color: #eee;
     font-size: 0.426667rem;
 }
+p{
+  font-size: 0.426667rem;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

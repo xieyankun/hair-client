@@ -1,6 +1,6 @@
 # hair-client
 
-<<<<<<< HEAD
+
 > A Vue.js project
 
 ## Build Setup
@@ -28,8 +28,3 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-=======
-
-hello 
->>>>>>> ef601d0a91db95d9f9c8f82efe071ed39c2e8f53

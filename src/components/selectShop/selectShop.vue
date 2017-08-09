@@ -49,6 +49,13 @@
     background-color: #f8f8f8;
     position: relative;
     margin: 3rem 0.48rem 0;
+
+    h4{
+      font-size: 0.48rem;
+    }
+    p{
+      font-size: 0.426667rem;
+    }
   }
   .layer{
     margin-top: 20%;

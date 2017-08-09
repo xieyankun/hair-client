@@ -17,6 +17,7 @@
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
     "mint-ui": "^2.2.7",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "vue": "^2.3.3",
